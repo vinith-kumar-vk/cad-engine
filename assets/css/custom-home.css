@@ -225,6 +225,11 @@ body { font-family: var(--font-inter), sans-serif; }
 .logo-carousel-slider .owl-dots { display: none !important; }
 .logo-carousel-slider .owl-nav  { display: none !important; }
 
+/* Continuous smooth sliding for logo carousel stage */
+.logo-carousel-slider .owl-stage {
+  transition-timing-function: linear !important;
+}
+
 /* ──────────────────────────────────────────────
    SERVICES SECTION
 ─────────────────────────────────────────────── */

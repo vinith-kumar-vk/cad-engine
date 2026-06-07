@@ -414,17 +414,18 @@
     <!-- Owl Carousel + AOS + Particles Init -->
     <script>
     $(document).ready(function(){
-        // Logo Carousel - auto-sliding, pause on hover
+        // Logo Carousel - continuous moving, pause on hover
         $('.logo-carousel-slider').owlCarousel({
             loop: true,
             margin: 30,
             nav: false,
             dots: false,
             autoplay: true,
-            autoplayTimeout: 2500,
+            autoplayTimeout: 0,
+            autoplaySpeed: 3000,
+            smartSpeed: 3000,
+            slideTransition: 'linear',
             autoplayHoverPause: true,
-            autoplaySpeed: 800,
-            smartSpeed: 800,
             responsive:{
                 0:    { items: 2 },
                 480:  { items: 3 },
