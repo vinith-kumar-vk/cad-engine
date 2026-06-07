@@ -83,17 +83,18 @@
                 <div class="vl-hero-content p-relative z-index-1">
                     <div class="vl-section-title-wrapper">
                         <!-- <h4 class="vl-section-subtitle-2 fw-500">WELCOME TO CADD ENGINE</h4> -->
-                        <h1 class="vl-section-heading vl-white pt-26">Empowering Design, Construction & Learning</h1>
-                        <p class="vl-section-description section-description3 pt-16 pb-28">
+                        <h1 class="pt-26" style="color:#ffffff !important; font-family:'Inter',sans-serif; font-size:52px; font-weight:900; line-height:1.15; letter-spacing:-1px;">Empowering Design,<br>Construction & Learning</h1>
+                        <p class="pt-16 pb-28" style="color:rgba(255,255,255,0.85); font-size:18px; line-height:1.7; font-family:'Inter',sans-serif; max-width:550px;">
                             Transforming ideas into precision-driven solutions with cutting-edge CAD/BIM, and engineering expertise.
                         </p>
                     </div>
 
-                    <div class="vl-hero-btn">
-                        <a href="contact.html" class="them-btn2 fix mr-16">
+                    <div class="vl-hero-btn d-flex align-items-center gap-3">
+                        <a href="contact.html" class="cad-hero-btn">
                             Explore Solutions 
-                            <span><i class="fa-regular fa-angle-right"></i></span>
+                            <i class="fa-regular fa-angle-right"></i>
                         </a>
+                        <a href="#" class="cad-hero-btn-outline">Watch Demo <i class="fas fa-play"></i></a>
                     </div>
                 </div>
             </div>
@@ -101,20 +102,25 @@
     </div>
 </section>
 
-    <!--================= Partner Logos Section start =================-->
-    <section class="partner-logos-sec" data-aos="fade-up" data-aos-duration="600">
+    <!--================= Logo Carousel Section start =================-->
+    <section class="logo-carousel-sec">
         <div class="container">
-            <div class="partner-logos-wrap">
-                <span class="partner-logo"><i class="fas fa-cubes"></i> AUTODESK</span>
-                <span class="partner-logo"><i class="fas fa-drafting-compass"></i> BENTLEY</span>
-                <span class="partner-logo"><i class="fas fa-route"></i> TRIMBLE</span>
-                <span class="partner-logo"><i class="fas fa-project-diagram"></i> GRAPHISOFT</span>
-                <span class="partner-logo"><i class="fas fa-layer-group"></i> SOLIDWORKS</span>
-                <span class="partner-logo"><i class="fas fa-tasks"></i> PRIMAVERA</span>
+            <p class="logo-carousel-label">Trusted tools & platforms we train on</p>
+            <div class="owl-carousel logo-carousel-slider owl-theme">
+                <div class="logo-item"><i class="fas fa-cubes"></i><span>AUTODESK</span></div>
+                <div class="logo-item"><i class="fas fa-drafting-compass"></i><span>BENTLEY</span></div>
+                <div class="logo-item"><i class="fas fa-route"></i><span>TRIMBLE</span></div>
+                <div class="logo-item"><i class="fas fa-project-diagram"></i><span>GRAPHISOFT</span></div>
+                <div class="logo-item"><i class="fas fa-layer-group"></i><span>SOLIDWORKS</span></div>
+                <div class="logo-item"><i class="fas fa-tasks"></i><span>PRIMAVERA</span></div>
+                <div class="logo-item"><i class="fas fa-ruler-combined"></i><span>AUTOCAD</span></div>
+                <div class="logo-item"><i class="fas fa-building"></i><span>REVIT</span></div>
+                <div class="logo-item"><i class="fas fa-sitemap"></i><span>NAVISWORKS</span></div>
+                <div class="logo-item"><i class="fas fa-map"></i><span>CIVIL 3D</span></div>
             </div>
         </div>
     </section>
-    <!--================= Partner Logos Section end =================-->
+    <!--================= Logo Carousel Section end =================-->
 
     <!--================= Services Section start =================-->
     <section class="services-sec sec-padding">
@@ -392,8 +398,8 @@
         </div>
     </footer>
     <!--================= Site Footer end =================-->
-    
-  <script src="assets/js/jquery-2.1.3.min.js"></script>
+    <!-- Scripts -->
+    <script src="assets/js/jquery-2.1.3.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/fontawesome.min.js"></script>
     <script src="assets/js/isotope.pkgd.min.js"></script>
@@ -404,35 +410,59 @@
     <script src="assets/js/jquery.counterup.min.js"></script>
     <script src="assets/js/aos.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Owl Carousel + AOS + Particles Init -->
+    <script>
+    $(document).ready(function(){
+        // Logo Carousel - auto-sliding, pause on hover
+        $('.logo-carousel-slider').owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: false,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 2500,
+            autoplayHoverPause: true,
+            autoplaySpeed: 800,
+            smartSpeed: 800,
+            responsive:{
+                0:    { items: 2 },
+                480:  { items: 3 },
+                768:  { items: 4 },
+                992:  { items: 5 },
+                1200: { items: 6 }
+            }
+        });
 
-    <!-- js file -->
-     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-   
-   <script>
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 60 },
-    size: { value: 3 },
-    color: { value: "#ffffff" },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#00bfff",
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 2
-    }
-  },
-  interactivity: {
-    events: {
-      onhover: { enable: true, mode: "grab" }
-    }
-  }
-});
-</script>
-   
+        // Ripple effect on .cad-hero-btn and .cad-contact-btn
+        $(document).on('click', '.cad-hero-btn, .cad-contact-btn, .cad-hero-btn-outline', function(e){
+            var $this = $(this);
+            var offset = $this.offset();
+            var x = e.pageX - offset.left;
+            var y = e.pageY - offset.top;
+            var $ripple = $('<span class="btn-ripple"></span>').css({ left: x, top: y });
+            $this.append($ripple);
+            setTimeout(function(){ $ripple.remove(); }, 700);
+        });
+    });
+
+    // AOS init
+    AOS.init({ once: true, easing: 'ease-out-quart' });
+
+    // Particles
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 55 },
+            size: { value: 3 },
+            color: { value: "#ffffff" },
+            line_linked: { enable: true, distance: 150, color: "#00bfff", opacity: 0.35, width: 1 },
+            move: { enable: true, speed: 2 }
+        },
+        interactivity: {
+            events: { onhover: { enable: true, mode: "grab" } }
+        }
+    });
+    </script>
+
 </body>
-</html>
+</html>

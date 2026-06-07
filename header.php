@@ -3,7 +3,11 @@
 <head>   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O-Tech 2</title>
+    <title>CAD Engine | Empowering AEC with BIM, CAD & Industry Expertise</title>
+    <meta name="description" content="CAD Engine is a leading EdTech and BIM consulting company specializing in AutoCAD, Revit, Navisworks and AEC training across UAE, India, Oman and Saudi Arabia.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- fav icon -->
     <link rel="shortcut icon" href="assets/img/icons/vl-fav-ic-1.2.svg">
 
@@ -56,7 +60,7 @@
                     </div>
                     <div class="col-lg-2 col-md-6 col-6">
                         <div class="vl-hero-btn2 d-none d-lg-block text-lg-end">
-                            <a href="#" class="them-btn2">Contact Us <span><i class="fa-regular fa-angle-right"></i></span></a>
+                             <a href="#" class="cad-contact-btn">Contact Us <i class="fa-regular fa-angle-right"></i></a>
                          </div>
 
                         <div class="vl-header-action-item d-block d-lg-none">
