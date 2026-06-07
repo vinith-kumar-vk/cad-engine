@@ -169,13 +169,14 @@ body { font-family: var(--font-inter), sans-serif; }
 .btn-red-custom:hover span { transform: rotate(45deg); }
 
 /* ──────────────────────────────────────────────
-   LOGO CAROUSEL
+   LOGO MARQUEE (pure CSS – zero jerk)
 ─────────────────────────────────────────────── */
 .logo-carousel-sec {
   background: #fff;
-  padding: 32px 0;
+  padding: 28px 0 32px;
   border-top: 1px solid var(--cad-border);
   border-bottom: 1px solid var(--cad-border);
+  overflow: hidden;
 }
 .logo-carousel-label {
   text-align: center;
@@ -187,30 +188,79 @@ body { font-family: var(--font-inter), sans-serif; }
   margin-bottom: 20px;
   font-family: var(--font-inter);
 }
+
+/* Outer wrapper: clips overflow so marquee scrolls edge-to-edge */
+.logo-marquee-wrap {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Fade edges */
+.logo-marquee-wrap::before,
+.logo-marquee-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.logo-marquee-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, #fff, transparent);
+}
+.logo-marquee-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, #fff, transparent);
+}
+
+/* Track: flex row, animates translateX by exactly 50% (= one set width) */
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: logoMarquee 22s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover */
+.logo-marquee-wrap:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes logoMarquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Individual logo item */
 .logo-item {
-  display: flex !important;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  padding: 14px 10px;
+  padding: 14px 28px;
   border-radius: 10px;
-  transition: all 0.3s ease;
-  cursor: default;
   border: 1px solid transparent;
+  cursor: default;
   user-select: none;
+  flex-shrink: 0;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 .logo-item i {
-  font-size: 26px;
+  font-size: 28px;
   color: #9ca3af;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 .logo-item span {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 2px;
   color: #9ca3af;
-  transition: all 0.3s ease;
   font-family: var(--font-inter);
+  white-space: nowrap;
+  transition: color 0.3s ease;
 }
 .logo-item:hover {
   background: #fef2f2;
@@ -220,14 +270,6 @@ body { font-family: var(--font-inter), sans-serif; }
 .logo-item:hover i,
 .logo-item:hover span {
   color: var(--cad-red);
-}
-/* Hide default owl nav/dots */
-.logo-carousel-slider .owl-dots { display: none !important; }
-.logo-carousel-slider .owl-nav  { display: none !important; }
-
-/* Continuous smooth sliding for logo carousel stage */
-.logo-carousel-slider .owl-stage {
-  transition-timing-function: linear !important;
 }
 
 /* ──────────────────────────────────────────────

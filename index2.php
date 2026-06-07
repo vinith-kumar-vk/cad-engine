@@ -102,11 +102,12 @@
     </div>
 </section>
 
-    <!--================= Logo Carousel Section start =================-->
+       <!--================= Logo Marquee Section start =================-->
     <section class="logo-carousel-sec">
-        <div class="container">
-            <p class="logo-carousel-label">Trusted tools & platforms we train on</p>
-            <div class="owl-carousel logo-carousel-slider owl-theme">
+        <p class="logo-carousel-label">Trusted tools &amp; platforms we train on</p>
+        <div class="logo-marquee-wrap">
+            <div class="logo-marquee-track">
+                <!-- Set 1 -->
                 <div class="logo-item"><i class="fas fa-cubes"></i><span>AUTODESK</span></div>
                 <div class="logo-item"><i class="fas fa-drafting-compass"></i><span>BENTLEY</span></div>
                 <div class="logo-item"><i class="fas fa-route"></i><span>TRIMBLE</span></div>
@@ -117,10 +118,21 @@
                 <div class="logo-item"><i class="fas fa-building"></i><span>REVIT</span></div>
                 <div class="logo-item"><i class="fas fa-sitemap"></i><span>NAVISWORKS</span></div>
                 <div class="logo-item"><i class="fas fa-map"></i><span>CIVIL 3D</span></div>
+                <!-- Set 2 (duplicate for seamless loop) -->
+                <div class="logo-item" aria-hidden="true"><i class="fas fa-cubes"></i><span>AUTODESK</span></div>
+                <div class="logo-item" aria-hidden="true"><i class="fas fa-drafting-compass"></i><span>BENTLEY</span></div>
+                <div class="logo-item" aria-hidden="true"><i class="fas fa-route"></i><span>TRIMBLE</span></div>
+                <div class="logo-item" aria-hidden="true"><i class="fas fa-project-diagram"></i><span>GRAPHISOFT</span></div>
+                <div class="logo-item" aria-hidden="true"><i class="fas fa-layer-group"></i><span>SOLIDWORKS</span></div>
+                <div class="logo-item" aria-hidden="true"><i class="fas fa-tasks"></i><span>PRIMAVERA</span></div>
+                <div class="logo-item" aria-hidden="true"><i class="fas fa-ruler-combined"></i><span>AUTOCAD</span></div>
+                <div class="logo-item" aria-hidden="true"><i class="fas fa-building"></i><span>REVIT</span></div>
+                <div class="logo-item" aria-hidden="true"><i class="fas fa-sitemap"></i><span>NAVISWORKS</span></div>
+                <div class="logo-item" aria-hidden="true"><i class="fas fa-map"></i><span>CIVIL 3D</span></div>
             </div>
         </div>
     </section>
-    <!--================= Logo Carousel Section end =================-->
+    <!--================= Logo Marquee Section end =================-->
 
     <!--================= Services Section start =================-->
     <section class="services-sec sec-padding">
@@ -411,29 +423,9 @@
     <script src="assets/js/aos.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <!-- Owl Carousel + AOS + Particles Init -->
+    <!-- AOS + Particles Init -->
     <script>
     $(document).ready(function(){
-        // Logo Carousel - continuous moving, pause on hover
-        $('.logo-carousel-slider').owlCarousel({
-            loop: true,
-            margin: 30,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 0,
-            autoplaySpeed: 3000,
-            smartSpeed: 3000,
-            slideTransition: 'linear',
-            autoplayHoverPause: true,
-            responsive:{
-                0:    { items: 2 },
-                480:  { items: 3 },
-                768:  { items: 4 },
-                992:  { items: 5 },
-                1200: { items: 6 }
-            }
-        });
 
         // Ripple effect on .cad-hero-btn and .cad-contact-btn
         $(document).on('click', '.cad-hero-btn, .cad-contact-btn, .cad-hero-btn-outline', function(e){
